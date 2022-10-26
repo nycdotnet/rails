@@ -78,6 +78,11 @@ module ActiveRecord
     # Connections in the pool are actually AbstractAdapter objects (or objects
     # compatible with AbstractAdapter's interface).
     #
+    # While a thread has a connection checked-out from the pool using one of the
+    # above three methods, that connection will automatically be the one used 
+    # by ActiveRecord queries executing on that thread.  You do not have to pass
+    # the checked-out connection to a model or query, for example.
+    #
     # == Options
     #
     # There are several connection-pooling-related options that you can add to
