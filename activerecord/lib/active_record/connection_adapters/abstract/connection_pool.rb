@@ -53,7 +53,7 @@ module ActiveRecord
     # handle cases in which there are more threads than connections: if all
     # connections have been checked out, and a thread tries to checkout a
     # connection anyway, then ConnectionPool will wait until some other thread
-    # has checked in a connection.
+    # has checked in a connection or the checkout_timeout has expired.
     #
     # == Obtaining (checking out) a connection
     #
